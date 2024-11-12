@@ -226,13 +226,38 @@ contains
   end function saturating_sub
 
 
-  function clamp_i32(val, min, max) result(clamp)
+  function clamp_i32(val, min, max) result(c)
     implicit none
 
-    type(c_int32_t), intent(in), value :: val, min, max
-    type(c_int32_t) :: clamp
+    integer(c_int32_t), intent(in), value :: val, min, max
+    integer(c_int32_t) :: c
 
+    if (val < min) then
+      c = min
+      return
+    else if (val > max) then
+      c = max
+      return
+    end if
+    c = val
   end function clamp_i32
+
+
+  function clamp_i64(val, min, max) result(c)
+    implicit none
+
+    integer(c_int64_t), intent(in), value :: val, min, max
+    integer(c_int64_t) :: c
+
+    if (val < min) then
+      c = min
+      return
+    else if (val > max) then
+      c = max
+      return
+    end if
+    c = val
+  end function clamp_i64
 
 
 end module math_helpers
