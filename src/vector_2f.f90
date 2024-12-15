@@ -71,21 +71,21 @@ contains
   end function constructor_scalar_f32
 
 
-  type(vec2f) function constructor_raw_f32(x,y,z) result(new_vec2f)
+  type(vec2f) function constructor_raw_f32(x,y) result(new_vec2f)
     implicit none
 
-    real(c_float), intent(in), value :: x,y,z
+    real(c_float), intent(in), value :: x,y
 
-    new_vec2f = [x,y,z]
+    new_vec2f = [x,y]
   end function constructor_raw_f32
 
 
-  type(vec2f) function constructor_array_f32(xyz_array) result(new_vec2f)
+  type(vec2f) function constructor_array_f32(xy_array) result(new_vec2f)
     implicit none
 
-    real(c_float), dimension(2), intent(in) :: xyz_array
+    real(c_float), dimension(2), intent(in) :: xy_array
 
-    new_vec2f = xyz_array(1:2)
+    new_vec2f = xy_array(1:2)
   end function constructor_array_f32
 
 
