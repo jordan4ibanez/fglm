@@ -260,4 +260,38 @@ contains
   end function clamp_i64
 
 
+  function clamp_f32(val, min, max) result(c)
+    implicit none
+
+    real(c_float), intent(in), value :: val, min, max
+    real(c_float) :: c
+
+    if (val < min) then
+      c = min
+      return
+    else if (val > max) then
+      c = max
+      return
+    end if
+    c = val
+  end function clamp_f32
+
+
+  function clamp_f64(val, min, max) result(c)
+    implicit none
+
+    real(c_double), intent(in), value :: val, min, max
+    real(c_double) :: c
+
+    if (val < min) then
+      c = min
+      return
+    else if (val > max) then
+      c = max
+      return
+    end if
+    c = val
+  end function clamp_f64
+
+
 end module math_helpers
