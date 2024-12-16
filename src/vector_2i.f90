@@ -76,12 +76,12 @@ contains
   end function constructor_raw
 
 
-  type(vec2i) function constructor_array(xyz_array) result(new_vec2i)
+  type(vec2i) function constructor_array(xy_array) result(new_vec2i)
     implicit none
 
-    integer(c_int), dimension(2), intent(in) :: xyz_array
+    integer(c_int), dimension(2), intent(in) :: xy_array
 
-    new_vec2i = xyz_array(1:2)
+    new_vec2i = xy_array(1:2)
   end function constructor_array
 
 
